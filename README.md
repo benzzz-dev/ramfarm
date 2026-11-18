@@ -65,6 +65,27 @@ Sirve desde cualquier casa o red, mientras la principal esté prendida.
 
 ---
 
+## 4. Evitar apagones accidentales (opcional, en cada torre)
+
+Para que el botón del gabinete, el de sleep o cerrar la tapa NO apaguen la torre.
+En **CMD como administrador**, pega:
+
+```
+powercfg -setacvalueindex SCHEME_CURRENT SUB_BUTTONS PBUTTONACTION 0
+powercfg -setdcvalueindex SCHEME_CURRENT SUB_BUTTONS PBUTTONACTION 0
+powercfg -setacvalueindex SCHEME_CURRENT SUB_BUTTONS SBUTTONACTION 0
+powercfg -setacvalueindex SCHEME_CURRENT SUB_BUTTONS LIDACTION 0
+powercfg -setactive SCHEME_CURRENT
+```
+
+Además, en la **BIOS** de cada torre pon **"Restore on AC Power Loss"** en **"Power On"**,
+así se prende sola si se corta la luz o se apaga.
+
+Nota: mantener el botón apretado 4 segundos corta el hardware igual (eso es físico,
+no lo evita Windows).
+
+---
+
 ## Notas
 
 - Tailscale solo va en la **principal** y en tus **PC de casa**. Las trabajadoras NO lo necesitan.
